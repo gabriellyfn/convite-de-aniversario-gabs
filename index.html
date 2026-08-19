@@ -140,6 +140,40 @@
   .postit p{ word-break:break-word; }
   #mural-empty{ font-family:'Sniglet',cursive; }
 
+  /* ---------- modal "o que vai rolar" ---------- */
+  #modal-overlay{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(122,75,50,0.55);
+    backdrop-filter:blur(3px);
+    -webkit-backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center;
+    padding:1rem;
+  }
+  #modal-overlay.hidden{ display:none; }
+  #modal-window{ max-width:34rem; width:100%; max-height:85vh; overflow-y:auto; }
+  #modal-close-btn{ cursor:pointer; }
+
+  .tag-sticker{
+    display:inline-flex; align-items:center; gap:6px;
+    background:linear-gradient(120deg, var(--bubblegum), #fff);
+    border:2px solid var(--strawberry);
+    border-radius:999px;
+    padding:8px 14px;
+    font-family:'Fredoka',sans-serif; font-weight:600;
+    font-size:0.85rem;
+    color:var(--choco);
+    box-shadow:0 3px 0 rgba(122,75,50,.2);
+    transition:transform .15s ease;
+  }
+  .tag-sticker:hover{ transform:translateY(-3px) rotate(-2deg); }
+
+  .playlist-box{
+    border:3px dashed var(--strawberry);
+    border-radius:20px;
+    padding:1.5rem;
+    background:var(--mint);
+  }
+
   /* scalloped hat-brim divider — the signature element */
   .scallop{
     width:100%;
@@ -346,7 +380,7 @@
               </div>
             </div>
             <p class="font-effect text-lg sm:text-xl mt-6 max-w-[260px] leading-snug" style="color:var(--choco);">
-              Eu, mini diva, em minha primeira temporada como Moranguinho...
+              Mini diva na sua primeira temporada como Moranguinho...
             </p>
           </div>
 
@@ -381,7 +415,7 @@
         <span class="win-btns"><span>_</span><span>▢</span><span>✕</span></span>
       </div>
       <div class="win-body">
-        <h2 class="text-3xl sm:text-4xl text-center mb-10" style="color:var(--strawberry);">Onde e quando a história ganha mais um capítulo:</h2>
+        <h2 class="text-3xl sm:text-4xl text-center mb-10" style="color:var(--strawberry);">Onde e quando a história ganha mais um capítulo 🍰</h2>
 
         <!-- countdown -->
         <div class="max-w-xs mx-auto mb-12">
@@ -404,12 +438,12 @@
           <div class="ticket p-8 sm:p-10 w-full flex flex-col sm:flex-row items-center gap-8">
             <div class="flex-1 space-y-6 text-center sm:text-left">
               <div>
-                <p class="font-heading text-lg" style="color:var(--hotpink);">Data:</p>
-                <p class="font-semibold text-xl">12 de setembro</p>
+                <p class="font-normal text-lg" style="color:var(--hotpink);">Data:</p>
+                <p class="font-normal text-xl">12 de setembro</p>
               </div>
               <div>
-                <p class="font-heading text-lg" style="color:var(--hotpink);">Horário:</p>
-                <p class="font-semibold text-xl">17h00</p>
+                <p class="font-normal text-lg" style="color:var(--hotpink);">Horário:</p>
+                <p class="font-normal text-xl">17h00</p>
               </div>
             </div>
 
@@ -417,8 +451,8 @@
 
             <div class="flex-1 space-y-4 text-center sm:text-left w-full">
               <div>
-                <p class="font-heading text-lg" style="color:var(--hotpink);">Local:</p>
-                <p class="font-semibold text-lg leading-tight">Rua Pedro de Moraes, nº 30<br>Jandira</p>
+                <p class="font-normal text-lg" style="color:var(--hotpink);">Local:</p>
+                <p class="font-normal text-lg leading-tight">Rua Pedro de Moraes, nº 30<br>Jandira</p>
               </div>
               <a href="https://www.google.com/maps/search/?api=1&query=Rua+Pedro+de+Moraes%2C+30+-+Jandira" target="_blank" rel="noopener noreferrer"
                 class="maps-btn font-heading inline-flex items-center gap-2 mt-2 px-6 py-3 rounded-full text-base" style="color:var(--strawberry);">
@@ -427,10 +461,59 @@
             </div>
           </div>
         </div>
+
+        <div class="text-center mt-10">
+          <button id="btn-abrir-modal" type="button"
+            class="holo-btn font-heading inline-flex items-center gap-2 px-8 py-3 rounded-full text-base" style="color:var(--strawberry);">
+            ✨ Clique aqui para saber mais detalhes
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ================= MODAL: O QUE VAI ROLAR NA FESTA ================= -->
+<div id="modal-overlay" class="hidden">
+  <div id="modal-window" class="win">
+    <div class="win-title" style="background:linear-gradient(90deg, var(--strawberry), var(--hotpink));">
+      <span>🎉 o_que_vai_rolar</span>
+      <span class="win-btns"><span>_</span><span>▢</span><span id="modal-close-btn">✕</span></span>
+    </div>
+    <div class="win-body">
+      <h2 class="text-2xl sm:text-3xl text-center mb-2" style="color:var(--strawberry);">O que vai rolar na festa? 🎊</h2>
+      <p class="font-effect text-center mb-8" style="color:var(--choco);">confere só o que tá preparado:</p>
+
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        <span class="tag-sticker">🍔 Comida</span>
+        <span class="tag-sticker">🧃 Bebida</span>
+        <span class="tag-sticker">🎵 Música</span>
+        <span class="tag-sticker">🗣️ Conversas</span>
+        <span class="tag-sticker">🍰 Doces</span>
+        <span class="tag-sticker">🎮 Jogos</span>
+        <span class="tag-sticker">🗣️ Risadas</span>
+        <span class="tag-sticker">🎉 Parabéns</span>
+        <span class="tag-sticker">📸 Fotos</span>
+      </div>
+
+      <div class="playlist-box">
+        <p class="font-heading text-center text-lg mb-1" style="color:var(--strawberry);">🎵 monte a playlist da festa</p>
+        <p class="font-effect text-center text-sm mb-5" style="color:var(--choco);">manda o nome da música ou do estilo que você quer ouvir!</p>
+
+        <form id="playlist-form" action="https://formspree.io/f/xvkpvpqb" method="POST" class="flex flex-col gap-3">
+          <input type="hidden" name="_subject" value="Sugestão de playlist - Festa da Gabs">
+          <input id="playlist-nome" name="nome" type="text" maxlength="40" placeholder="Seu nome" required class="mural-input">
+          <input id="playlist-musica" name="musica" type="text" maxlength="120" placeholder="Música ou estilo que você quer ouvir" required class="mural-input">
+          <button type="submit" class="holo-btn font-heading self-center inline-flex items-center gap-2 px-8 py-3 rounded-full text-base" style="color:var(--strawberry);">
+            Enviar sugestão 🎶
+          </button>
+        </form>
+
+        <p id="playlist-feedback" class="hidden font-heading text-center text-sm mt-4 px-4 py-2 rounded-full mx-auto" style="background:#fff; color:var(--choco); width:fit-content;"></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="scallop scallop-top" style="color:var(--mint);">
   <svg viewBox="0 0 1200 60" preserveAspectRatio="none" width="100%" height="60"><path fill="currentColor" d="M0,60 L0,20 Q25,55 50,20 Q75,55 100,20 Q125,55 150,20 Q175,55 200,20 Q225,55 250,20 Q275,55 300,20 Q325,55 350,20 Q375,55 400,20 Q425,55 450,20 Q475,55 500,20 Q525,55 550,20 Q575,55 600,20 Q625,55 650,20 Q675,55 700,20 Q725,55 750,20 Q775,55 800,20 Q825,55 850,20 Q875,55 900,20 Q925,55 950,20 Q975,55 1000,20 Q1025,55 1050,20 Q1075,55 1100,20 Q1125,55 1150,20 Q1175,55 1200,20 L1200,60 Z"></path></svg>
@@ -506,7 +589,7 @@
 <!-- ================= FOOTER ================= -->
 <footer class="py-14 px-5 text-center" style="background:var(--strawberry);">
   <p class="font-effect text-xl sm:text-2xl leading-snug max-w-2xl mx-auto" style="color:var(--cream);">
-    Se aos 1 eu já tinha festa da Moranguinho,<br> aos 22 não poderia ser diferente!!
+    Se aos 1 eu já tinha festa da Moranguinho,<br> aos 22 não poderia ser diferente!! 
   </p>
   <p class="mt-6 text-sm" style="color:var(--bubblegum);">Desenvolvido por mim, com amor, código e uma quantidade questionável de detalhes</p>
 </footer>
@@ -688,6 +771,86 @@
 
       form.reset();
       nomeInput.focus();
+    });
+  })();
+</script>
+
+<script>
+  // ---------- modal "o que vai rolar na festa?" ---------- 
+  (function(){
+    var overlay = document.getElementById('modal-overlay');
+    var btnAbrir = document.getElementById('btn-abrir-modal');
+    var btnFechar = document.getElementById('modal-close-btn');
+    if(!overlay || !btnAbrir) return;
+
+    function abrirModal(){
+      overlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharModal(){
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    btnAbrir.addEventListener('click', abrirModal);
+    if(btnFechar) btnFechar.addEventListener('click', fecharModal);
+
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay) fecharModal();
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && !overlay.classList.contains('hidden')) fecharModal();
+    });
+  })();
+</script>
+
+<script>
+  // ---------- formulário da playlist (Formspree + confete) ----------
+  (function(){
+    var form = document.getElementById('playlist-form');
+    var feedback = document.getElementById('playlist-feedback');
+    if(!form) return;
+
+    var nomeInput = document.getElementById('playlist-nome');
+    var musicaInput = document.getElementById('playlist-musica');
+    var feedbackTimeout = null;
+
+    function mostrarFeedback(texto){
+      if(!feedback) return;
+      feedback.textContent = texto;
+      feedback.classList.remove('hidden');
+      if(feedbackTimeout) clearTimeout(feedbackTimeout);
+      feedbackTimeout = setTimeout(function(){
+        feedback.classList.add('hidden');
+      }, 6000);
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var nome = nomeInput.value.trim();
+      var musica = musicaInput.value.trim();
+      if(!nome || !musica) return;
+
+      // dispara a chuva de confete 🍓✨ ao enviar a sugestão de música
+      if(typeof dispararConfete === 'function') dispararConfete();
+
+      var dadosForm = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: dadosForm,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(resposta){
+        if(resposta.ok){
+          mostrarFeedback('Sugestão enviada! Vamos colocar na playlist 🎶💌');
+        } else {
+          mostrarFeedback('Não consegui enviar agora, tenta de novo mais tarde 🙏');
+        }
+      }).catch(function(){
+        mostrarFeedback('Sem conexão agora pra enviar a sugestão 😢 tenta de novo depois!');
+      });
+
+      form.reset();
     });
   })();
 </script>
