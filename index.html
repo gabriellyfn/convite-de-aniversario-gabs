@@ -246,6 +246,14 @@
   .maps-btn:hover{ transform:translateY(-4px) scale(1.03); }
   .maps-btn:active{ transform:translateY(2px) scale(.99); box-shadow:0 4px 0 #d98fa3; }
 
+  .calendar-btn{
+    background:linear-gradient(120deg,#fff, var(--mint));
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 8px 0 #6fb999, 0 14px 22px rgba(122,75,50,.25);
+  }
+  .calendar-btn:hover{ transform:translateY(-4px) scale(1.03); }
+  .calendar-btn:active{ transform:translateY(2px) scale(.99); box-shadow:0 4px 0 #6fb999; }
+
   .heart-tag{
     background:var(--strawberry);
     color:var(--cream);
@@ -368,7 +376,7 @@
         <span class="win-btns"><span>_</span><span>▢</span><span>✕</span></span>
       </div>
       <div class="win-body text-center">
-        <h2 class="text-2xl sm:text-3xl mb-12" style="color:var(--strawberry);"> Seção nostalgia </h2>
+        <h2 class="text-2xl sm:text-3xl mb-12" style="color:var(--strawberry);">✨ seção nostalgia ✨</h2>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-14 sm:gap-8">
 
@@ -380,7 +388,7 @@
               </div>
             </div>
             <p class="font-effect text-lg sm:text-xl mt-6 max-w-[260px] leading-snug" style="color:var(--choco);">
-              Mini diva na sua primeira temporada como Moranguinho...
+              Eu, mini diva, em minha primeira temporada como Moranguinho...🍓👑
             </p>
           </div>
 
@@ -415,7 +423,7 @@
         <span class="win-btns"><span>_</span><span>▢</span><span>✕</span></span>
       </div>
       <div class="win-body">
-        <h2 class="text-3xl sm:text-4xl text-center mb-10" style="color:var(--strawberry);">Onde e quando a história ganha mais um capítulo 🍰</h2>
+        <h2 class="text-3xl sm:text-4xl text-center mb-10" style="color:var(--strawberry);">Onde e quando nossa história ganha mais um capítulo 🍰</h2>
 
         <!-- countdown -->
         <div class="max-w-xs mx-auto mb-12">
@@ -443,7 +451,7 @@
               </div>
               <div>
                 <p class="font-normal text-lg" style="color:var(--hotpink);">Horário:</p>
-                <p class="font-normal text-xl">17h00</p>
+                <p class="font-normal text-xl">17h30</p>
               </div>
             </div>
 
@@ -457,6 +465,10 @@
               <a href="https://www.google.com/maps/search/?api=1&query=Rua+Pedro+de+Moraes%2C+30+-+Jandira" target="_blank" rel="noopener noreferrer"
                 class="maps-btn font-heading inline-flex items-center gap-2 mt-2 px-6 py-3 rounded-full text-base" style="color:var(--strawberry);">
                 🗺️ abrir no Google Maps
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Anivers%C3%A1rio+da+Gabs+%F0%9F%8D%93&dates=20260912T203000Z/20260913T030000Z&details=Comemora%C3%A7%C3%A3o+de+22+anos+da+Gabs%21+%F0%9F%8D%93%E2%9C%A8&location=Rua+Pedro+de+Moraes%2C+30+-+Jandira" target="_blank" rel="noopener noreferrer"
+                class="calendar-btn font-heading inline-flex items-center gap-2 mt-2 px-6 py-3 rounded-full text-base" style="color:var(--strawberry);">
+                📅 Adicionar ao Google Agenda
               </a>
             </div>
           </div>
@@ -482,7 +494,7 @@
     </div>
     <div class="win-body">
       <h2 class="text-2xl sm:text-3xl text-center mb-2" style="color:var(--strawberry);">O que vai rolar na festa? 🎊</h2>
-      <p class="font-effect text-center mb-8" style="color:var(--choco);">confere só o que tá preparado:</p>
+      <p class="font-effect text-center mb-8" style="color:var(--choco);">confere só o que tá preparado pra você:</p>
 
       <div class="flex flex-wrap justify-center gap-3 mb-10">
         <span class="tag-sticker">🍔 Comida</span>
@@ -494,6 +506,13 @@
         <span class="tag-sticker">🗣️ Risadas</span>
         <span class="tag-sticker">🎉 Parabéns</span>
         <span class="tag-sticker">📸 Fotos</span>
+      </div>
+
+      <div class="rounded-3xl p-5 sm:p-6 mb-10" style="background:var(--cream); border:3px solid var(--bubblegum);">
+        <p class="font-heading text-center text-base mb-2" style="color:var(--strawberry);">🍓 recadinho importante</p>
+        <p class="font-effect text-center text-sm sm:text-base leading-relaxed" style="color:var(--choco);">
+          Teremos bastante comidinha, refrigerante, sucos e doces pra todo mundo! Porém, bebidas alcóolicas fiquem a vontade para trazer o seu próprio consumo belezaa ?
+        </p>
       </div>
 
       <div class="playlist-box">
@@ -589,7 +608,7 @@
 <!-- ================= FOOTER ================= -->
 <footer class="py-14 px-5 text-center" style="background:var(--strawberry);">
   <p class="font-effect text-xl sm:text-2xl leading-snug max-w-2xl mx-auto" style="color:var(--cream);">
-    Se aos 1 eu já tinha festa da Moranguinho,<br> aos 22 não poderia ser diferente!! 
+    Se aos 1 eu já tinha festa da Moranguinho,<br> aos 22 não poderia ser diferente!! 🍓💗
   </p>
   <p class="mt-6 text-sm" style="color:var(--bubblegum);">Desenvolvido por mim, com amor, código e uma quantidade questionável de detalhes</p>
 </footer>
@@ -649,7 +668,7 @@
 <script>
   // ---------- contagem regressiva até 12/09/2026 17:00 ----------
   (function(){
-    var alvo = new Date('2026-09-12T17:00:00');
+    var alvo = new Date('2026-09-12T17:30:00');
     var elDias = document.getElementById('cd-dias');
     var elHoras = document.getElementById('cd-horas');
     if(!elDias) return;
